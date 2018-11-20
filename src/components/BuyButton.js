@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 
 var BuyButton = React.memo(({post, images}) => {
   const [selected, setSelected] = useState(post.customFields.values[0]);
+  var filteredImgs = images.filter(x => x.name == selected);
+  var choosenImgSrc = filteredImgs.length > 0
+    ? filteredImgs[0].src
+    : images[0].src
 
   return (
     <div>
-        <img src={images.filter(x => x.name == selected)[0].src} width="400px"></img>
+        <img src={choosenImgSrc} width="400px"></img>
         <h3>{post.customFields.name}</h3>
         <select 
             id={post.customFields.name} 
@@ -38,7 +42,7 @@ var BuyButton = React.memo(({post, images}) => {
         className='snipcart-add-item buyBtn'
         data-item-id={post.id}
         data-item-price={post.price}
-        data-item-image={images.filter(x => x.name == selected)[0].src}
+        data-item-image={choosenImgSrc}
         data-item-name={post.title}
         data-item-description={post.description}
         data-item-custom1-name={post.customFields.name}
