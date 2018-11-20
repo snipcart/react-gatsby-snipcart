@@ -13,8 +13,11 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const siteDescription = post.excerpt
     const { previous, next } = this.props.pageContext
-
-    var imgSrc = require(`./../pages${post.frontmatter.path}${post.frontmatter.image}.jpg`);
+    const images = post.frontmatter.image
+      .map(x => ({
+        name: x.name,
+        src: require(`./../pages${post.frontmatter.path}${x.src}.jpg`)
+      }))
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -47,11 +50,9 @@ class BlogPostTemplate extends React.Component {
         >
         </p>
         
-        <img src={imgSrc}></img>
-
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         
-        <BuyButton post={post.frontmatter} img={imgSrc}>
+        <BuyButton post={post.frontmatter} images={images}>
         </BuyButton>
 
         <ul
@@ -107,7 +108,10 @@ export const pageQuery = graphql`
         id
         path
         description
-        image
+        image {
+          name
+          src
+        }
         customFields { 
           name
           values 

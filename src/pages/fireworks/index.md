@@ -3,7 +3,10 @@ title: Fireworks
 layout: post
 date: 2018-07-21
 id: 1
-image: "fireworks"
+image: 
+    - name: "default"
+      src: "fireworks"
+
 price: 67.89
 path: "/fireworks/"
 customFields:

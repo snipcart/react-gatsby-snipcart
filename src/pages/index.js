@@ -25,7 +25,8 @@ class BlogIndex extends React.Component {
 
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug;
-          const imgSrc= require(`./../pages${node.frontmatter.path}${node.frontmatter.image}.jpg`);
+          var image = get(node, 'frontmatter.image');
+          const imgSrc= require(`./../pages${node.frontmatter.path}${image[0].src}.jpg`);
           
           return (
             <div key={node.fields.slug}>
@@ -73,7 +74,10 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             path
-            image
+            image {
+              name
+              src
+            }
           }
         }
       }

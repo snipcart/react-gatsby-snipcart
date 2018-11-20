@@ -3,7 +3,10 @@ title: Dry Martini
 layout: post
 date: 2018-07-21
 id: 3
-image: "dry-martini"
+image:
+    - name: "default"
+      src: "dry-martini"
+
 price: 8.50
 path: "/dry-martini/"
 customFields:
