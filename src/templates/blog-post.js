@@ -54,7 +54,6 @@ class BlogPostTemplate extends React.Component {
         <BuyButton post={post.frontmatter} img={imgSrc}>
         </BuyButton>
 
-
         <ul
           style={{
             marginTop: "45px",

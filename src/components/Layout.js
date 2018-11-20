@@ -63,6 +63,14 @@ class Layout extends React.Component {
       >
         {header}
         {children}
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <div style={{
+          textAlign: 'center'
+        }}>Made with <span style={{color: 'red'}}>&#10084;</span> by <a target="_blank" href="https://snipcart.com">Snipcart</a></div>
       </div>
     )
   }

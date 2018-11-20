@@ -24,7 +24,9 @@ class BlogIndex extends React.Component {
           title={siteTitle}/>
 
         {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
+          const title = get(node, 'frontmatter.title') || node.fields.slug;
+          const imgSrc= require(`./../pages${node.frontmatter.path}${node.frontmatter.image}.jpg`);
+          
           return (
             <div key={node.fields.slug}>
               <h3
@@ -37,7 +39,11 @@ class BlogIndex extends React.Component {
                 </Link>
               </h3>
               <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              
+              <div>
+                <img src={imgSrc} width="200px"></img>
+                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              </div>
             </div>
           )
         })}
@@ -66,6 +72,8 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            path
+            image
           }
         }
       }
