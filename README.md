@@ -1,11 +1,7 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
+# React-powered e-commerce with Gatsby
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+![Gatsby-react-ecommerce](https://snipcart.com/media/203950/react-gatsby-ecommerce-1.jpg)
 
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
+> See the live demo [here](https://snipcart-react-gatsby.netlify.com/)
 
-Or [view the live demo here](https://gatsby-starter-blog-demo.netlify.com/).
-
-## Running in development
-`gatsby develop`
+> Read the complete tutorial [here](https://snipcart.com/blog/react-ecommerce-gatsby-tutorial)
